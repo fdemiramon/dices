@@ -18,7 +18,7 @@ contract Dice7b is IDice {
         while (value == 0) {
             rollA = roll6();
             rollB = roll6();
-            if ((rollA + rollB) == 12) { continue;}
+            if ((rollA + rollB) == 12) continue;
             value = rollA + (rollA >= rollB ? 1 : 0);
         }
 

@@ -24,6 +24,7 @@ contract Dice6Test is Test {
     function test_dice7a() public {
         rollDice(7, IDice(new Dice7a()));
     }
+
     function test_diceb() public {
         rollDice(7, IDice(new Dice7b()));
     }
