@@ -12,6 +12,15 @@ contract Dice7 is IDice {
     }
 
     function roll() public returns (uint256) {
-        return 0;
+        uint256 value = 0;
+        while ((value == 0) || (value == 8)) {
+            value = roll6() * 2 ^ 2 + roll6() * 2 ^ 1 + roll6();
+        }
+
+        return value;
+    }
+
+    function roll6() private returns (uint256) {
+        return (dice6.roll() < 4 ? 1 : 0);
     }
 }

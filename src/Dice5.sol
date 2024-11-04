@@ -12,6 +12,10 @@ contract Dice5 is IDice {
     }
 
     function roll() public returns (uint256) {
-        return 0;
+        uint256 value;
+        while (true) {
+            value = dice6.roll();
+            if (value < 6) return value;
+        }
     }
 }

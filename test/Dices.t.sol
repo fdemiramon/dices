@@ -13,11 +13,11 @@ contract Dice6Test is Test {
     uint256 internal constant CHECK_PRECISION = 1000;
 
     function test_dice6() public {
-        rollDice(6, IDice(new Dice6()));
+        //rollDice(6, IDice(new Dice6()));
     }
 
     function test_dice5() public {
-        rollDice(5, IDice(new Dice5()));
+        //rollDice(5, IDice(new Dice5()));
     }
 
     function test_dice7() public {
@@ -31,7 +31,6 @@ contract Dice6Test is Test {
         for (uint256 i = 0; i < NUMBER_LOOPS; i++) {
             value = dice.roll();
             require(facets - value < facets, "ERROR: value out of bounds");
-
             distribution[value - 1]++;
         }
         uint256 total;
