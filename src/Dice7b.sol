@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {IDice} from "./IDice.sol";
 import {Dice6} from "./Dice6.sol";
 
-contract Dice7 is IDice {
+contract Dice7b is IDice {
     IDice dice6;
 
     constructor() {
@@ -13,14 +13,19 @@ contract Dice7 is IDice {
 
     function roll() public returns (uint256) {
         uint256 value = 0;
-        while ((value == 0) || (value == 8)) {
-            value = roll6() * 2 ^ 2 + roll6() * 2 ^ 1 + roll6();
+        uint256 rollA;
+        uint256 rollB;
+        while (value == 0) {
+            rollA = roll6();
+            rollB = roll6();
+            if ((rollA + rollB) == 12) { continue;}
+            value = rollA + (rollA >= rollB ? 1 : 0);
         }
 
         return value;
     }
 
     function roll6() private returns (uint256) {
-        return (dice6.roll() < 4 ? 1 : 0);
+        return dice6.roll();
     }
 }

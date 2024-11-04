@@ -4,7 +4,8 @@ pragma solidity ^0.8.13;
 import {Test} from "forge-std/Test.sol";
 import {Dice5} from "../src/Dice5.sol";
 import {Dice6} from "../src/Dice6.sol";
-import {Dice7} from "../src/Dice7.sol";
+import {Dice7a} from "../src/Dice7a.sol";
+import {Dice7b} from "../src/Dice7b.sol";
 import {IDice} from "../src/IDice.sol";
 import {console} from "forge-std/console.sol";
 
@@ -13,15 +14,18 @@ contract Dice6Test is Test {
     uint256 internal constant CHECK_PRECISION = 1000;
 
     function test_dice6() public {
-        //rollDice(6, IDice(new Dice6()));
+        rollDice(6, IDice(new Dice6()));
     }
 
     function test_dice5() public {
-        //rollDice(5, IDice(new Dice5()));
+        rollDice(5, IDice(new Dice5()));
     }
 
-    function test_dice7() public {
-        rollDice(7, IDice(new Dice7()));
+    function test_dice7a() public {
+        rollDice(7, IDice(new Dice7a()));
+    }
+    function test_diceb() public {
+        rollDice(7, IDice(new Dice7b()));
     }
 
     function rollDice(uint256 facets, IDice dice) public {
